@@ -1,119 +1,250 @@
-const GRID_SIZE = 10;
-const gridContainer = document.getElementById("grid-container");
-const startBtn = document.getElementById("startBtn");
-const resetBtn = document.getElementById("resetBtn");
-let grid = new Array(GRID_SIZE).fill(null).map(() => new Array(GRID_SIZE).fill(0));
-let startNode = [2, 2];
-let endNode = [7, 7];
-let isDrawingStart = false;
-let isDrawingEnd = false;
-let isDrawingWall = false;
-let isPathfinding = false;
+//Importing Algorithm
+import {BreadthFirstSearch} from './bfs.js'
+import {DepthFirstSearch} from './dfs.js'
 
-function createGrid() {
-    for (let i = 0; i < GRID_SIZE; i++) {
-        for (let j = 0; j < GRID_SIZE; j++) {
-            const node = document.createElement("div");
-            node.classList.add("grid-item");
-            node.dataset.row = i;
-            node.dataset.col = j;
-            gridContainer.appendChild(node);
-            grid[i][j] = node;
+$(document).ready(function () {
+  //Set pevious State
+  var SIZE = 22;
+  var SPEED = 3;
+  var ALGORITHM = 1;
+  var startid, endid;
+  var isDown = false;
+  var wall = [];
+  var uniqueId;
+  var data = new Array(2);
 
-            node.addEventListener("mousedown", handleMouseDown);
-            node.addEventListener("mouseup", handleMouseUp);
-            node.addEventListener("mouseover", handleMouseOver);
-        }
-    }
-}
+  //Initial Function
+  displayGrid(SIZE);
 
-function clearGrid() {
-    for (let i = 0; i < GRID_SIZE; i++) {
-        for (let j = 0; j < GRID_SIZE; j++) {
-            const node = grid[i][j];
-            node.classList.remove("start-node", "end-node", "wall-node", "visited-node", "shortest-path-node");
-        }
-    }
-}
-
-function handleMouseDown(event) {
-    const row = parseInt(event.target.dataset.row);
-    const col = parseInt(event.target.dataset.col);
-
-    if (isPathfinding) return;
-
-    if (row === startNode[0] && col === startNode[1]) {
-        isDrawingStart = true;
-    } else if (row === endNode[0] && col === endNode[1]) {
-        isDrawingEnd = true;
+  //sIZE SPEED AND SIZE
+  $("[type=range]").change(function () {
+    var newval = $(this).val();
+    //console.log(newval);
+    if (this.id == "speed") {
+      $("#speed_dis").text(newval);
+      SPEED = newval;
     } else {
-        isDrawingWall = true;
-        event.target.classList.add("wall-node");
+      $("#size_dis").text(newval);
+      SIZE = newval;
+      startid = undefined;
+      endid = undefined;
+      displayGrid(SIZE);
     }
-}
+  });
 
-function handleMouseUp() {
-    isDrawingStart = false;
-    isDrawingEnd = false;
-    isDrawingWall = false;
-}
+  //Display grid Function
+  function displayGrid(x) {
+    $(".screen").html(" ");
+    let screenWidth = $(".screen").innerWidth() / SIZE;
 
-function handleMouseOver(event) {
-    if (isPathfinding) return;
-    
-    const row = parseInt(event.target.dataset.row);
-    const col = parseInt(event.target.dataset.col);
-
-    if (isDrawingStart) {
-        grid[startNode[0]][startNode[1]].classList.remove("start-node");
-        startNode = [row, col];
-        event.target.classList.add("start-node");
-    } else if (isDrawingEnd) {
-        grid[endNode[0]][endNode[1]].classList.remove("end-node");
-        endNode = [row, col];
-        event.target.classList.add("end-node");
-    } else if (isDrawingWall) {
-        event.target.classList.add("wall-node");
+    for (let i = 0; i < x * x; i++) {
+      $(".screen").append('<div class="unit" id="' + i + '"></div>');
     }
-}
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+    $(".unit").css("width", screenWidth + "px");
+    $(".unit").css("height", screenWidth + "px");
+  }
 
-async function visualizePathfinding(path) {
-    isPathfinding = true;
-    for (let node of path) {
-        const [row, col] = node;
-        grid[row][col].classList.add("visited-node");
-        await sleep(50);
+  //Resize Event Handler
+  $(window).on("resize", function () {
+    displayGrid(SIZE);
+    startid = undefined;
+    endid = undefined;
+  });
+
+  //cHOOSE aLGORITHm
+  $('select').on('change', function() {
+      //console.log( this.value );
+      let choice = this.value;
+      if (choice == 1) {
+        $(".title h1").text("Breadth First Search");
+      } else if (choice == 2) {
+        $(".title h1").text("Depth First Search");
+      } else if (choice == 3) {
+        $(".title h1").text("Dijkstra Algorithm");
+      } else {
+        $(".title h1").text("A* Algorithm");
+      }
+      ALGORITHM = choice;
+  });
+
+  //oNCLICK HAndle Visualization [[[[[[Start]]]]]]]
+  $("#start").on("click", function () {
+    if (startid == undefined || endid == undefined) {
+      alert("Select the starting and ending point.");
+    } else {
+      wallGenerate();
+      connectArray(SIZE);
+      //Disable input field
+      $("#wall").prop("disabled", true);
+      $("#clear").prop("disabled", true);
+      $("#size").prop("disabled", true);
+      $("#speed").prop("disabled", true);
+      $("#start").prop("disabled", true);
+      decoder(ALGORITHM);
     }
-    isPathfinding = false;
-}
+  });
 
-function resetGrid() {
-    clearGrid();
-    startNode = [2, 2];
-    endNode = [7, 7];
-}
-
-startBtn.addEventListener("click", async () => {
-    if (isPathfinding) return;
-
-    resetGrid();
-    clearGrid();
-    
-    const path = await pathfindingAlgorithm();
-    if (path) {
-        visualizePathfinding(path);
+  //Handle algorithm visualization
+  function decoder(algo) {
+    SPEED = 6 - SPEED;
+    if (algo == 1) {
+      BreadthFirstSearch(data,startid,endid,SPEED);
+    } else if (algo == 2) {
+      DepthFirstSearch(data,startid,endid,SPEED);
+    } else if (algo == 3) {
+      Dijkstra(data,startid,endid,SPEED);
+    } else {
+     Astar(data,startid,endid,SPEED);
     }
+  }
+
+  //Display---Animation---Onclick
+  $("body").on("dblclick", ".unit", function () {
+    //console.log(startid);
+    //console.log(endid);
+    if (startid == undefined) {
+      $(this).addClass("target");
+      startid = $(this).attr("id");
+    } else if (endid == undefined) {
+      $(this).addClass("target");
+      endid = $(this).attr("id");
+    } else {
+      //pass;
+    }
+  });
+
+  //Clear Cell
+  $("#clear").on("click", function () {
+    startid = undefined;
+    endid = undefined;
+    wall = [];
+    $(".unit").addClass("restore");
+    data = new Array(2);
+    $(".unit").removeClass("animate");
+    $(".unit").removeClass("target");
+    $(".unit").removeClass("wall");
+    $(".unit").removeClass("path");
+  });
+
+  //Double Click Custom WALL Mouse Event
+  $("body").on("mousedown", ".unit", function () {
+    isDown = true;
+  });
+
+  $("body").on("mouseup", ".unit", function () {
+    isDown = false;
+  });
+
+  $("body").on("mouseover", ".unit", function () {
+    if (isDown && $(this).css("background-color") != "rgb(38, 38, 38)") {
+      if ($(this).css("background-color") === "rgb(1, 110, 253)") {
+        $(this).addClass("restore");
+        $(this).removeClass("wall");
+      } else {
+        $(this).addClass("wall");
+        $(this).removeClass("restore");
+      }
+      //console.log($(this).css("background-color"));
+    }
+  });
+
+  //Making Wall on button Press
+  $("#wall").on("click", function () {
+    wall = 0;
+    for (let i = 0; i < SIZE * SIZE; i++) {
+      if (i == startid || i == endid) {
+        //pass
+      } else {
+        let x = Math.round(Math.random() * 10);
+        if (x == 0 || x == 1 || x == 2) {
+          $("#" + i).addClass("wall");
+        }
+      }
+    }
+    //console.log(wall);
+  });
+
+  //generating wall array on click
+  function wallGenerate() {
+    wall = [];
+    for (let i = 0; i < SIZE * SIZE; i++) {
+      let x = $("#" + i).css("background-color");
+      if (x == "rgb(1, 110, 253)") {
+        wall.push(i);
+      }
+    }
+    //console.log(wall);
+  }
+
+  //Generate Array of Given Size//Conerting Array to Graph
+  function connectArray(size) {
+    uniqueId = 0;
+
+    //Making 2-D Array
+    for (let i = 0; i < size; i++) {
+      data[i] = new Array(2);
+    }
+
+    //Initializing 2-D Array
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        //console.log(wall.indexOf(uniqueId))
+        if(wall.indexOf(uniqueId)==-1){
+          data[i][j] = new Spot(i, j, false, uniqueId++);
+        }else{
+          data[i][j] = new Spot(i, j, true, uniqueId++);
+        }
+      }
+    }
+
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        data[i][j].connectFrom(data);
+      }
+    }
+    //console.log(data);
+  }
+
+    //Function to make neighbors
+    function Spot(i,j,isWall,id){
+      this.i = i;
+      this.j = j;
+      this.id = id;
+      this.isWall = isWall;
+      this.neighbors = [];
+      this.path = [];
+      this.visited = false;
+      this.distance = Infinity;
+      this.heuristic = 0;
+      this.function = this.distance + this.heuristic;
+      this.source = "";
+
+      this.connectFrom = function(data){
+          var i = this.i;
+          var j = this.j;
+          if(i>0 && !(data[i-1][j].isWall)){
+              this.neighbors.push(data[i-1][j])
+          }
+          if(i<SIZE-1 && !(data[i+1][j].isWall)){
+              this.neighbors.push(data[i+1][j])
+          }
+          if(j>0 && !(data[i][j-1].isWall)){
+              this.neighbors.push(data[i][j-1])
+          }
+          if(j<SIZE-1 && !(data[i][j+1].isWall)){
+              this.neighbors.push(data[i][j+1])
+          }
+      }
+
+  }
+
+
+  //Make bfs dfs work ===> visual animate and path animate
+  //Scope for the dijistra and algorithm
+  //Scope of the the other algorithm to work
+
+  //Applying Algorithm one-by-one
+
+  //===============================
 });
-
-resetBtn.addEventListener("click", () => {
-    if (isPathfinding) return;
-
-    resetGrid();
-    clearGrid();
-});
-
-createGrid();
