@@ -1,18 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="/Users/raunaknag/PROJECTS/Project-Algorithm-Visualizer/css/pathfinding_style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="./css/common_style.css">
+    <link rel="stylesheet" href="./css/pathfinding_style.css">
 </head>
 <body>
-    <h1>Pathfinding Visualization</h1>
-    <button id="bfsBtn">Run Breadth-First Search</button>
-    <button id="dijkstraBtn">Run Dijkstra's Algorithm</button>
-    <button id="astarBtn">Run A* Search</button>
-    <button id="dfsBtn">Run Depth-First Search</button>
-    <button id="startBtn">Start</button>
-    <button id="resetBtn">Reset</button>
-    <div class="grid-container" id="grid-container"></div>
+    <header>
+        <h1>Pathfinding Algorithm Visualizer</h1>
+    </header>
 
-    <script src="/Users/raunaknag/PROJECTS/Project-Algorithm-Visualizer/js/pathfinding.js"></script>
+    <div class="container">
+        <div class="grid-container" id="grid-container">
+            <!-- Your grid items (nodes) go here -->
+        </div>
+        <div class="choice">
+            <div class="buttons_container">
+                <select name="" class="pathfinding_algos" id="pathfinding_algos">  
+            <option value="bfs">BFS</option>
+            <option value="dfs">DFS</option>
+                </select>
+                <button>
+                    <p><span style="font-size: 20px;">+</span>&nbsp; &nbsp; &nbsp;Speed&nbsp; &nbsp; &nbsp;<span style="font-size: 20px;">-</span></p>
+                    <input type="range" min="2" max="500" id="speed" class="Speed" value="50">
+                </button>
+                <button id="visualize_btn">Visualize</button>
+                <button id="clear_btn">Clear</button>
+                <button id="home" class="button">Home</button>
+        </select>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+           Made with &#10084;&#65039; by Your Name &nbsp; 
+           <a href="#" rel="noopener noreferrer" target="_blank">Your GitHub</a>
+       </p>
+   </footer>
+
+    <script src="./js/pathfinding_script.js"></script>
 </body>
 </html>
