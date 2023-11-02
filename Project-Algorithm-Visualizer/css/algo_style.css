@@ -1,0 +1,74 @@
+a{
+    text-decoration: none;
+}
+
+.algo{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.algo-img{
+    width: 100%;
+    height: 100%;
+}
+
+.algo:hover .content{
+    top: 0;
+}
+
+.algo:hover{
+    width: 350px;
+    height: 350px;
+}
+
+.content{
+    background-color: rgba(0, 185, 255, 0.87);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.5s;
+}
+
+.content_title{
+    font-size: 30px;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.about{
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    padding: 20px 0;
+    margin-top: 35px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.position{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-weight: bolder;
+    color: black;
+    z-index: 2;
+}
+
+.algo-img{
+    filter: blur(1.5px);
+}
+
+.algo:hover .position{
+    z-index: 0;
+}

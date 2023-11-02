@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="./css/common_style.css">
+    <link rel="stylesheet" href="./css/soe_style.css">
+    <link rel="stylesheet" href="./css/slider_style.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1>
+            Sieve of Eratosthenes Visualizer
+        </h1>
+    </header>
+
+    <div class="container">
+
+            <div class="home_container">
+
+            <div class="swiper">
+    
+                <div class="swiper-wrapper">
+        
+                   <div id="img1" class="swiper-slide">
+
+                    <div class="half" id="half1">
+                        <table class="soe" id="soe"></table>
+                    </div>
+
+                    <div class="half" id="half2">
+                        <button id="solve_soe" class="button">Visualize</button>
+                        <button id="clear" class="button">Clear</button>
+                        <button id="home" class="button">Home</button>
+
+                        <h2 class="prime">Prime Numbers from 1 to 100.</h2>
+                        <div id="result"></div>
+                    </div>
+                    
+                   </div>
+
+                   <div id="img2" class="swiper-slide">
+                     <div class="half" id="half1">
+                        <img src="./img/soe21.jpg" alt="" class="soeImage">
+                     </div>
+
+                      <div class="half" id="half2">
+                        <h2>The steps involved in separating the prime numbers from 1 to 100 are as follows:</h2>
+                        <ul>
+                            <li>Step 1: First, write all the natural numbers from 1 to 100, row-wise and column-wise, as shown in the below figure.</li>
+                            <li>Step 2: Put a cross over 1, as it is neither a prime number nor a composite.</li>
+                            <li>Step 3: Now, encircle the number 2 (which is a prime number) and cross all the multiples of 2, such as 4,6,8,10,12, and so on. Since all the multiples of 2 are composite.</li>
+                            <li>Step 4: Next, encircle the number 3, and put a cross over all the multiples of 3, such as 6,9,15,21, etc. Since apart from 3, all its multiples are composite.</li>
+                            <li>Step 5: Again, encircle the number 5 (since it has only two factors), and put a cross over all the multiples of 5.</li>
+                            <li>Step 6: Now encircle 7 and cross all the multiples of 7</li>
+                            <li>Step 7: Encircle 11 and cross all the multiples of 11</li>
+                            <li>Step 8: Continue the process unless all the numbers are either encircled or crossed.</li>
+
+                        </ul>
+
+                      </div>
+                   </div>
+          
+               </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev" style="color: white;"></div>
+                <div class="swiper-button-next"  style="color: white;"></div>
+                   
+               <div class="swiper-pagination"></div> 
+      
+            </div>
+          </div>
+        </div>
+   
+        
+
+    <!-- </div>  -->
+
+    <footer>
+        <p>
+           Made with &#10084;&#65039; by Harsh &nbsp; 
+           <img src="img/git.png" /> &nbsp; 
+           <a href="https://github.com/Harsh-1000" 
+               rel="noopener noreferrer" target="_blank">harsh-1000</a>
+       </p>
+   </footer>
+
+   <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/soe_script.js"></script>
+    <script src="./js/script.js"></script>
+   
+</body>
+</html>

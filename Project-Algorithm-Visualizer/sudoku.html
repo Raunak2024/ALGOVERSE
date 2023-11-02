@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="./css/common_style.css">
+    <link rel="stylesheet" href="./css/sudoku_style.css">
+    <link rel="stylesheet" href="./css/slider_style.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>
+            Sudoku Solver
+        </h1>
+    </header>
+
+    <div class="container">
+        <div class="home_container">
+
+            <div class="swiper">
+    
+                <div class="swiper-wrapper">
+        
+                   <div id="img1" class="swiper-slide">
+
+                    <div class="half" id="half1">
+                        <table class="sudoku" id="sudoku"></table>
+                    </div>
+
+                    <div class="half" id="half2">
+                        
+                            <button id="solve" class="button">Visualize</button>
+                            <button id="generate" class="button">Generate</button>
+                            <button id="clear" class="button">Clear</button>
+                            <button id="home" class="button">Home</button>
+                        
+                
+                        <div class="status-row">
+                            <h2 id="sudoku-status"></h2>
+                        </div>
+                    </div>
+                    
+                   </div>
+
+                   <div id="img2" class="swiper-slide">
+                     <div class="half" id="half1">
+                        <img src="./img/back.jpg" alt="" class="soeImage">
+                     </div>
+
+                      <div class="half" id="half2">
+                        <h2>How Does a Backtracking Algorithm Work?</h2>
+                        <p>In any backtracking algorithm, the algorithm seeks a path to a feasible solution
+                        that includes some intermediate checkpoints. If the checkpoints do not lead to a viable solution, 
+                        the problem can return to the checkpoints and take another path to find a solution.</p>
+
+                        <h3>ALGORITHM (SUDOKU)</h3>
+                        <ol>
+                            <li>Find an unfilled cell (i,j) in grid</li>
+                            <li>If all the cells are filled then A valid sudoku is obtained hence return true </li>       
+                            <li>For each num in 1 to 9 </li>
+                                <ul>
+                                    <li>If the cell (i,j) can be filled with num then fill it with num temporarily to check</li>
+                                    <li>If sudokuSolver(grid) is true then return true</li>
+                                    <li>If the cell (i,j) can't be filled with num the mark it as unfilled to trigger backtracking</li>
+                                </ul>    
+                            <li>If none of the numbers from 1 to 9 can be filled in cell (i,j) then return false as there is no solution for this sudoku</li>
+                        </ol>
+                      </div>
+                   </div>
+          
+               </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev" style="color: white;"></div>
+                <div class="swiper-button-next"  style="color: white;"></div>
+                   
+               <div class="swiper-pagination"></div> 
+      
+            </div>
+          </div>
+    </div>
+
+    <footer>
+        <p>
+           Made with &#10084;&#65039; by Harsh &nbsp; 
+           <img src="img/git.png" /> &nbsp; 
+           <a href="https://github.com/Harsh-1000" 
+               rel="noopener noreferrer" target="_blank">harsh-1000</a>
+       </p>
+   </footer>
+
+   <script src="./js/swiper-bundle.min.js"></script>
+   <script src="./js/script.js"></script>
+    <script src="./js/renderSudoku.js"></script>
+</body>
+</html>
