@@ -12,24 +12,344 @@
     <header>
         <h1>Pathfinding Algorithm Visualizer</h1>
     </header>
-
     <div class="container">
-        <div class="grid-container" id="grid-container">
-            <!-- Your grid items (nodes) go here -->
-        </div>
+    <div class="grid-container" id="grid-container">
+        <!-- Grid cells with node classes -->
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+        <div class="grid-item wall-node"></div>
+
+
+        <!-- Add more grid cells as needed -->
+    </div>
+
+    <!-- Other UI components or controls if needed -->
         <div class="choice">
             <div class="buttons_container">
                 <select name="" class="pathfinding_algos" id="pathfinding_algos">  
             <option value="bfs">BFS</option>
             <option value="dfs">DFS</option>
                 </select>
-                <button>
-                    <p><span style="font-size: 20px;">+</span>&nbsp; &nbsp; &nbsp;Speed&nbsp; &nbsp; &nbsp;<span style="font-size: 20px;">-</span></p>
-                    <input type="range" min="2" max="500" id="speed" class="Speed" value="50">
-                </button>
                 <button id="visualize_btn">Visualize</button>
                 <button id="clear_btn">Clear</button>
-                <button id="home" class="button">Home</button>
+                <button id="home">Home</button>
         </select>
             </div>
         </div>
@@ -37,11 +357,9 @@
 
     <footer>
         <p>
-           Made with &#10084;&#65039; by Your Name &nbsp; 
-           <a href="#" rel="noopener noreferrer" target="_blank">Your GitHub</a>
+           Made with &#10084;&#65039;
        </p>
    </footer>
-
-    <script src="./js/pathfinding_script.js"></script>
+    <script src="./js/pathfinding.js"></script>
 </body>
 </html>
