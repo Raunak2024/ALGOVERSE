@@ -92,13 +92,12 @@ button {
     justify-content: center;
 }
 
-/* Style for the algorithm buttons */
-.algorithm-buttons {
+/* .algorithm-buttons {
     margin: 20px 0;
 }
 
 .algorithm-buttons button {
-    background-color: #007BFF; /* Example button color */
+    background-color: #007BFF; 
     color: white;
     padding: 10px 20px;
     border: none;
@@ -108,10 +107,11 @@ button {
 }
 
 .algorithm-buttons button:hover {
-    background-color: #0056b3; /* Example hover color */
-}
+    background-color: #0056b3; 
+} */
+
 /* Style for Algorithm Controls */
-.algorithm-controls {
+/* .algorithm-controls {
     background-color: #303030;
     padding: 10px;
     border-radius: 5px;
@@ -144,9 +144,9 @@ button {
 .algorithm-controls select option {
     background-color: #444;
     color: #ffffff;
-}
+} */
 
-.grid-container {
+/* .grid-container {
     display: grid;
     grid-template-columns: repeat(10, 30px);
     grid-gap: 2px;
@@ -182,6 +182,39 @@ button {
 
 .shortest-path-node {
     background-color: #3498db;
+}
+
+/* button {
+    margin: 10px;
+} */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(20, 30px); /* Adjust the number of columns as needed */
+    grid-gap: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.grid-item {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: white; /* All nodes are white by default */
+}
+
+.start-node {
+    background-color: #2ecc71; /* Color for the start node */
+    color: white; /* Text color */
+}
+
+.end-node {
+    background-color: #e74c3c; /* Color for the end node */
+    color: white; /* Text color */
 }
 
 button {
