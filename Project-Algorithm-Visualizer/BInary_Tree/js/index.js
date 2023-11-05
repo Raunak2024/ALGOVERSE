@@ -1,4 +1,18 @@
+
+//This script primarily handles user interactions, such as panning, zooming, and searching for specific nodes within the binary tree, and provides visual feedback by changing the colors of tree nodes.
+
+// DOM Element Selection:
+
+//The output variable selects an HTML element with the ID "tree."
+
 const output = document.getElementById("tree");
+
+
+// The getInput function is called when user input is provided. 
+
+//It extracts numeric values from the user's input, split by spaces, and stores them in an array named num.
+
+// Non-numeric and newline characters are filtered out.
 
 function getInput() {
     const value = document.getElementById("inp").value;
@@ -13,12 +27,16 @@ function getInput() {
     return num
 }
 
+// The action function is responsible for enabling the zooming functionality for the tree visualization when the user interacts with it.
+
 function action() {
     getRoot()
     const el = document.querySelector('#tree');
     el.onwheel = zoom;
 
 }
+
+// The getRoot function calls getInput to retrieve user input as an array of numeric values. It then calls 
 
 function getRoot() {
     var result = getInput()
@@ -30,11 +48,16 @@ function getRoot() {
 var tree = document.getElementById("tree");
 var starty, startx, scrleft, scrtop, isdown;
 
-//https://codepen.io/Gutto/pen/GBLPyN
+
+
+// these all are here event listeners that works on mouse effects
+
 tree.addEventListener('mousedown', e => MouseDown(e));
 tree.addEventListener('mouseup', e => mouseUp(e))
 tree.addEventListener('mouseleave', e => mouseLeave(e));
 tree.addEventListener('mousemove', e => mouseMove(e));
+
+
 
 function MouseDown(e) {
     isdown = true;
@@ -65,9 +88,10 @@ function mouseMove(e) {
         tree.scrollLeft = scrleft - goX;
     }
 }
+// the zoom function is triggered when the user scrolls  to zoom in or out of the tree visualization. It scales the tree diagram accordingly.
+
 let scale = 1;
 
-//https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event
 function zoom(event) {
     const el = document.querySelector('svg');
 

@@ -1,3 +1,6 @@
+// This constructor function can be used to create node objects for constructing tree structures.
+
+
 function Node(value, left, right, parent = "", children = []) {
     this.value = value;
     this.right = right;
@@ -9,12 +12,23 @@ function Node(value, left, right, parent = "", children = []) {
 
 }
 
+
+
+    // This function takes an array arr as input, with the assumption that the first element represents the root of a binary tree, and the subsequent elements are values to construct the tree.
+
 function createTree(arr) {
+
+
+    // this is the input array taken from user
     for (var i = 1; i < arr.length; i++) {
         nodeDirection(arr[0], arr[i])
+
+        // For each element in arr, it calls the nodeDirection function to establish the correct position (left or right child) for the node in the binary tree.
     }
 
+
     createData(arr[0]);
+
     remove();
     try {
         drawGraph(arr);
@@ -23,11 +37,15 @@ function createTree(arr) {
     }
 }
 
+// This function is used to remove an SVG graph element from the document. It checks if there is a graph (SVG element) in the document, and if so, it removes it from the parent element.
+
 function remove() {
     var graph = document.querySelector('svg');
     if (graph) { graph.parentElement.removeChild(graph) };
 
 }
+
+// This function is responsible for determining the correct direction (left or right child) to place a node within a binary tree. It takes a root node and a node as arguments.
 
 function nodeDirection(root, node) {
     var a = Number(node.value)
@@ -50,7 +68,14 @@ function nodeDirection(root, node) {
 
 }
 
+
+// This function manipulates the binary tree structure to ensure that each node has both a left and a right child.
+
+// If a child is missing, it adds a placeholder node labeled "Empty" to maintain the tree's structure.
+
 function createData(node) {
+
+    // if there is no input then it is said to be null
 
     if (node == null) { return }
 
@@ -81,6 +106,7 @@ function createData(node) {
     createData(node.right);
 
 }
+
 
 function createNodes(list) {
     new_list = [];
