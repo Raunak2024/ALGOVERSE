@@ -1,7 +1,10 @@
 // This constructor function can be used to create node objects for constructing tree structures.
 
+class Node{
 
-function Node(value, left, right, parent = "", children = []) {
+
+    
+ constructor(value, left, right, parent = "", children = []) {
     this.value = value;
     this.right = right;
     this.left = left;
@@ -11,7 +14,7 @@ function Node(value, left, right, parent = "", children = []) {
     this.isLeft = null;
 
 }
-
+}
 
 
     // This function takes an array arr as input, with the assumption that the first element represents the root of a binary tree, and the subsequent elements are values to construct the tree.
