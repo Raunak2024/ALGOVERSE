@@ -3,15 +3,19 @@ a{
 }
 
 .algo{
-    width: 300px;
+    width: 350px;
     height: 300px;
     position: relative;
     overflow: hidden;
 }
 
 .algo-img{
-    width: 100%;
-    height: 100%;
+    border-radius:10px;
+    overflow: hidden;
+    position: relative;
+    background-position: center center;
+    /* width: 100%;
+    height: 100%; */
 }
 
 .algo:hover .content{

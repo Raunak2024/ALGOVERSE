@@ -1,19 +1,135 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  /* border: 1px solid tomato; */
+
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
+  background: #000046;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 80vh;
-    background: #000428;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 80vh;
+  background: #000428;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
+.next-style{
+  background-color:  #808080;
+
+}
+
+.card-container{
+
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.card{
+
+  background-color: wheat !important;
+  width: 350px;
+  /* height: 225px; */
+  border-radius: 8px;
+  overflow: hidden;
+  
+  overflow: hidden;
+  box-shadow: 0px  2px 4px rgb(0,0,0,0.2);
+  margin: 30px;
+  transition: all 0.; 
+  cursor: pointer; 
+}
+
+.card:hover{
+ 
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgb(0,0,0,0.2);
+}
+
+
+.card img{
+  width: 100%;
+  height: 180px;
+  background-repeat: no-repeat;
+}
+.card-content{
+  padding: 16px;
+  height: 75px;
+}
+
+.card-content h3{
+
+font-size: 28px;
+margin-bottom: 0px;
+
+}
+
+.card-content p{ 
+
+  
+
+color: #666;
+font-size: 15px;
+line-height: 1.3;
+text-align: justify;
+
+
+
+}
+
+
+.card-content .btn{
+float: right;
+display: inline-block;
+font-weight: 200px;
+padding: 8px 16px;
+background-color: #333;
+text-decoration: none;
+border-radius: 4px;
+margin-top: 16px;
+color: #fff;
+}
+
+/* .container{
+    /* max-width: 100%;
+    margin: 0 auto;
+    padding: 50px 22px 50px 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    /* gap: 30px; */
+    /* position: relative; */
+
+}
+
+.cardd{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding:30px;
+    /* border: 1px solid #737373; */
+    /* border-radius: 10px; */
+    /* position: relative; */ */
+    /* border: 5px solid rgb(229, 0, 0); */
+
+} */
 
 
 
@@ -24,8 +140,7 @@ header{
     width: 100%;
     height: 10vh;
     background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 
 header h1{
@@ -41,9 +156,9 @@ footer{
     justify-content: center;
     width: 100%;
     height: 10vh;
-    background: #000046;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: black;  /* fallback for old browsers */
+    
+    
 }
 
 footer p{
@@ -64,3 +179,121 @@ footer img{
 }
 
 /* --------------------------------------------------------- */
+
+
+  .style-3 {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    background-color: rgb(27, 45, 57);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+    padding: 9px 18px;
+  }
+  
+  .style-4 {
+    color: rgb(197, 195, 193);
+    text-decoration-color: rgb(197, 195, 193);
+    background-color: rgba(0, 0, 0, 0);
+    display: block;
+    padding-top: 5.625px;
+    padding-bottom: 5.625px;
+    margin-right: 18px;
+    font-size: 22.5px;
+    line-height: 33.75px;
+    white-space: nowrap;
+    text-decoration: none solid rgb(197, 195, 193);
+  }
+  
+  .style-9 {
+    box-sizing: border-box;
+  }
+  
+  .style-10 {
+    padding-right: 9px;
+    padding-left: 9px;
+    color: rgb(197, 195, 193);
+    text-decoration-color: rgb(197, 195, 193);
+    background-color: rgba(0, 0, 0, 0);
+    display: block;
+    text-decoration: none solid rgb(197, 195, 193);
+  }
+  
+  .style-11 {
+    border-color: rgb(197, 195, 193);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    overflow: hidden;
+   
+  }
+  
+  .style-12 {
+    background-color: #434445;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    
+  }
+
+  .d{
+    padding: 20px;
+    background-color: #282c34;
+    justify-content: center;
+    text-align: center;
+    font-family: "Roboto Slab ExtraLight";
+  
+  }
+
+  .auto-type{
+    background-color: #343a40;
+  }
+  
+  .style-13 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: white !important;
+    padding: 20px;
+    font-size: 81px;
+  font-weight: 300;
+  line-height: 97.2px;
+  text-decoration: none solid rgb(255, 255, 255);
+  text-align: center;
+  white-space: nowrap;
+  word-spacing: 0px;
+
+  }
+  
+  .style-14 {
+    border-top-color: rgb(45, 49, 51);
+    border-right-color: rgb(197, 195, 193);
+    border-bottom-color: rgb(197, 195, 193);
+    border-left-color: rgb(197, 195, 193);
+    margin: 9px 0px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    border-width: 0.8px 0px 0px;
+    border-right-style: none;
+    border-top-style: solid;
+    box-sizing: content-box;
+  }
+  
+  .style-15 {
+    font-family: : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 45px;
+    margin-bottom: 9px;
+    font-weight: 500;
+    line-height: 54px;
+    text-align: center;
+    
+  }
+  
+  
+  
+  .adding-margin {
+
+    padding: 50px;
+  }
+

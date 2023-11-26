@@ -83,3 +83,6 @@ function dfsanimate(data,stop,speed){
         },(i+3)*20*speed);
     }
 }
+
+
+
