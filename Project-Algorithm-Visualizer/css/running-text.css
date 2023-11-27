@@ -1,8 +1,11 @@
 
 
 .animated-text{
-    font-size: 40px;
-    font-weight: 600;
+    
+    font-family: "Roboto Slab ExtraLight";
+    line-height: 60.75px;
+    font-size: 60px;
+    font-weight: 700;
     min-width: 280px;
 }
 
@@ -11,8 +14,9 @@
 }
 
 .animated-text span::before{
+    background-color:#343A40;
     content: "Soring Algorithms visualizer";
-    color: #ff7f50;
+    color: rgb(228, 226, 223) !important;
     animation: words 20s infinite;
 }
 
