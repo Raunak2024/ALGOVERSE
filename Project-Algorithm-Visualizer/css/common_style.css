@@ -5,6 +5,10 @@
 
 }
 
+body{
+  background-color: #282C34;
+}
+
 header{
   display: flex;
   align-items: center;
@@ -247,6 +251,8 @@ footer img{
     font-family: "Roboto Slab ExtraLight";
   
   }
+
+ 
 
   .auto-type{
     background-color: #343a40;
