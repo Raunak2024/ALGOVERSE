@@ -44,7 +44,7 @@ header{
 
 .card{
 
-  background-color: wheat !important;
+  background-color:#191B1C;
   width: 350px;
   /* height: 225px; */
   border-radius: 8px;
@@ -71,7 +71,7 @@ header{
 }
 .card-content{
   padding: 16px;
-  height: 75px;
+  height: 50px;
 }
 
 .card-content h3{
