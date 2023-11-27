@@ -1,7 +1,7 @@
 
 
 .animated-text{
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 600;
     min-width: 280px;
 }
@@ -11,7 +11,7 @@
 }
 
 .animated-text span::before{
-    content: "Youtuber";
+    content: "Soring Algorithms visualizer";
     color: #ff7f50;
     animation: words 20s infinite;
 }
@@ -35,19 +35,19 @@
 
 @keyframes words {
     0%,20%{
-        content: "Youtuber";
+        content: "Soduku Solver";
     }
     21%,40%{
-        content: "Blogger";
+        content: "Soe";
     }
     41%,60%{
-        content: "Developer";
+        content: "Binary Search Tree";
     }
     61%,80%{
-        content: "Designer";
+        content: "Singly Linked List";
     }
     81%,100%{
-        content: "Gamer";
+        content: "Doubly Linked List";
     }
 }
 
