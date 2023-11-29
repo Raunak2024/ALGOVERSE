@@ -2,19 +2,27 @@ class DeQueue {
   items = {};
   itemToRemoveFrontKey = 0;
   itemToAddRearKey = 0;
+
+
+  // to add elements to rear 
   addToRear(item) {
     this.items[this.itemToAddRearKey] = item;
     this.itemToAddRearKey++;
   }
+
   removeFromRear() {
     const itemToRemove = this.items[this.itemToAddRearKey - 1];
     delete this.items[this.itemToAddRearKey - 1];
     this.itemToAddRearKey--;
     return itemToRemove;
   }
+
+
   peekRear() {
     return this.items[this.itemToAddRearKey - 1];
   }
+
+
   addToFront(item) {
     if (this.isEmpty()) {
       this.addToRear(item);
@@ -29,19 +37,26 @@ class DeQueue {
       this.itemToAddRearKey++;
     }
   }
+
+
   removeFromFront() {
     const itemToRemove = this.items[this.itemToRemoveFrontKey];
     delete this.items[this.itemToRemoveFrontKey];
     this.itemToRemoveFrontKey++;
     return itemToRemove;
   }
+
   peekFront() {}
   isEmpty() {
     return this.size() === 0;
   }
+
+
   size() {
     return this.itemToAddRearKey - this.itemToRemoveFrontKey;
   }
+
+  
   clear() {
     this.items = {};
     this.itemToRemoveFrontKey = 0;
