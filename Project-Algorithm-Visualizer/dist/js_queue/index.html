@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
 
+        <link rel="stylesheet" href="../../css/prism.css"/>
+        <link rel="stylesheet" href="../../css/footer_code.css"/>
         <style>
             body {
                 background-color: #282C34;
@@ -47,6 +49,100 @@
                 </div>
             </section>
         </div>
+
+
+<footer>
+            <div id="description">
+                <div class="code">
+                    <div class="selectedPane">
+                        <span>Code in (Java)</span>
+                    </div>
+
+                    <pre id="code_java" style="font-family: 'Poppins', sans-serif;
+                    font-size: 15px;
+                    letter-spacing: 3px;">
+
+
+ <code class="language-java" style="font-size: 16px; font-weight: bold;">// Java program for implementation of Bubble Sort
+import java.util.*;
+
+class BubbleSort {
+    void bubbleSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (arr[j] > arr[j + 1]) {
+                    // swap arr[j+1] and arr[j]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+    }
+
+    /* Prints the array */
+    void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+
+    // Driver method to test above
+    public static void main(String args[])
+    {
+        BubbleSort ob = new BubbleSort();
+        int arr[] = { 5, 1, 4, 2, 8 };
+        ob.bubbleSort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+} 
+
+                            
+</code>
+ </pre>
+                </div>
+
+                <div class="complexity">
+                    <div class="timeComplexity">
+                        <div class="selectedPane">
+                            <span>Time Complexity</span>
+                        </div>
+                        <pre id="time" style="font-family: 'Poppins', sans-serif;
+                        font-size: 15px;
+                        letter-spacing: 3px;">
+                        <code class="language-java">
+The above function always runs O(N2) time even if the array is sorted. 
+It can be optimized by stopping the algorithm if the inner loop didn’t cause any swap.
+
+Time Complexity: O(N2)
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div class="spaceComplexity">
+                        <div class="selectedPane">
+                            <span>Space Complexity</span>
+                        </div>
+                        <pre id="space" style="font-family: 'Poppins', sans-serif;
+                        font-size: 15px;
+                        letter-spacing: 3px;">
+                            <code class="language-java">The Space Complexity of the Bubble Sort Algorithm Bubble sort requires only a fixed amount of extra space for the flag, i, and size variables. 
+As a result, the space complexity of bubble sort is O. (1).
+
+Auxiliary Space: O(1)
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+        </footer>
+    
+  
+       
+
+        <script src="../../js/prism.js"></script>
     <script defer="defer" src="../js_queue/js_queue.bundle.js"></script>
 </body>
 
