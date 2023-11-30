@@ -39,7 +39,9 @@
     <h1>Doubly Linked List</h1>
     
         <div class="container">
+
             <section>
+
                 <div class="app-container">
                     
                     <div class="box_container" before-text="Head">
@@ -86,6 +88,144 @@
 
 
  <code class="language-java" style="font-size: 16px; font-weight: bold;">
+
+    #include &lt;bits/stdc++.h&gt; ;
+    using namespace std;
+    
+    class Node
+    {
+    public:
+        Node *prev;
+        int data;
+        Node *next;
+    
+        // CONSTRUCTOR
+    
+        Node(int data)
+        {
+    
+            this->data = data;
+            this->next = NULL;
+            this->prev = NULL;
+        }
+    };
+    
+    void print(Node *head)
+    {
+    
+        Node *temp = head;
+    
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+    
+        cout << endl;
+    }
+    
+    int getLength(Node *head)
+    {
+        int length = 0;
+        Node *temp = head;
+    
+        while (temp != NULL)
+        {
+            length++;
+            temp = temp->next;
+        }
+        return length;
+    }
+    
+    void InsertAtHead(Node *&head,Node*&tail, int data)
+    {   
+        // if list is empty then
+        if (head == NULL)
+        {
+            Node*temp=new Node(data);
+            head=temp;
+        }
+        else
+        {
+            Node *temp = new Node(data);
+            temp->next = head;
+            head->prev = temp;
+            head = temp;
+        }
+    }
+    
+    void InsertAtTail(Node*&head,Node*&tail, int data)
+    {
+          if (head == NULL)
+        {
+            Node*temp=new Node(data);
+            head=temp;
+        }
+        else{
+        Node *temp = new Node(data);
+        tail->next = temp;
+        tail = temp;
+        }
+    }
+    
+    void InsertAtPosition(Node *&head, Node *&tail, int position, int data)
+    {
+        if (position == 1)
+        {
+            InsertAtHead(head,tail, data);
+            return;
+        }
+        else
+        {
+    
+            int count = 1;
+            Node *temp = head;
+    
+            while (count &gt; position - 1)
+            {
+                count++;
+                temp = temp->next;
+            }
+    
+            // inserting at last position
+            if (temp->next == NULL)
+            {
+                InsertAtTail(head,tail, data);
+                return;
+            }
+    
+            // creating a newnode
+            Node *newnode = new Node(data);
+    
+            newnode->next = temp->next;
+            newnode->prev = temp;
+            temp->next = newnode;
+            temp->next->prev = newnode;
+        }
+    }
+    
+    int main()
+    {
+        Node *node1 = new Node(10);
+    
+        Node *head = node1;
+        Node *tail = node1;
+    
+        print(head);
+        cout << getLength(head) << endl;
+    
+        InsertAtHead(head,tail, 20);
+    
+        print(head);
+        InsertAtTail(head,tail, 30);
+        print(head);
+    
+        InsertAtPosition(head, tail, 1, 300);
+        print(head);
+    
+        return 0;
+    }
+
     
 </code>
 
@@ -102,19 +242,13 @@
                         letter-spacing: 3px;">
                         <code class="language-java">     
 
-*Access/Search: O(n) - 
-  Linear time to traverse the list, 
-  as both forward and backward traversal may be necessary.
+**Access/Search:** O(n) - 
+  Linear time due to forward or backward traversal.
 
-*Insertion/Deletion (at the beginning): O(1) - 
-  Constant time, as it involves updating pointers.
-                            
-*Insertion/Deletion (at the end): O(1) - 
-  Constant time, as there are pointers to both the head and tail.
-                            
-*Insertion/Deletion (in the middle, with known position): O(1) - 
+**Insertion/Deletion (at the beginning/end):** O(1) - Constant time.
 
-  Constant time, once the specific position is reached.
+**Insertion/Deletion (in the middle):** O(1) 
+  once the specific position is reached.
                             </code>
                         </pre>
                     </div>
@@ -127,16 +261,14 @@
                         font-size: 15px;
                         letter-spacing: 3px;">
                             <code class="language-java">
-                                Space Complexity:
 
-                                Node Size: O(1) - 
-                                
-                                Each node requires constant space for data 
-                                
-                                Number of Nodes: O(n) - The space complexity is O(n), 
-                                
-                                where 'n' is the number of nodes in the doubly linked list.
-                                
+**Node Size:**  O(1) per node.
+
+**Number of Nodes:** O(n) 
+ where 'n' is the number of nodes in the doubly linked list.
+
+**Constant Overhead:** O(1) for the linked list structure, 
+  including head and tail pointers.
                                
 
 
