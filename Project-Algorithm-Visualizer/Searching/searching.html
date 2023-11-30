@@ -97,43 +97,55 @@
             <div id="description">
                 <div class="code">
                     <div class="selectedPane">
-                        <span>Code in (Java)</span>
+                        <span>Code in C++</span>
                     </div>
                     <pre id="code_java" style="font-family: 'Poppins', sans-serif;
                     font-size: 15px;
                     letter-spacing: 3px;">
-                        <code class="language-java">// Java code for linearly searching x in arr[]. If x
-// is present then return its location, otherwise
-// return -1 
+                        <code class="language-java">
+                            #include < bits/stdc++.h>
+                            using namespace std;
+                                
+                            int BinarySearch(int arr[],int size,int key)
+                            {
+                                int left=0;
+                                int right=size-1;
+                                int mid=left+(right-left)/2;
+                            
+                                while(left<=right){
+                            
+                                    if(key==arr[mid]){
+                                         return mid;
+                                    }
+                            
+                                    else if(key>arr[mid])
+                                    {
+                                        left=mid+1;
+                                    }
+                            
+                                    else{
+                                        right=mid-1;
+                                    }
+                                     mid=left+(right-left)/2;
+                                }
+                                return -1;
+                            }
+                            
+                            int main()
+                            {
+                            int arr[]={10,20,30,40,50,60};
+                            int size=sizeof(arr)/sizeof(arr[0]);
+                            
+                            int key=20;
+                            
+                            int k=BinarySearch(arr,size,key);
+                            
+                            cout<< k<< endl;
+                                
+                            return 0;
+                            }
 
-class GFG {
-public static int search(int arr[], int x) 
-{
-    int N = arr.length;
-    for (int i = 0; i < N; i++) {
-        if (arr[i] == x)
-            return i;
-    }
-    return -1;
-}
-
-// Driver's code
-public static void main(String args[])
-{
-    int arr[] = { 2, 3, 4, 10, 40 };
-    int x = 10;
-
-    // Function call
-    int result = search(arr, x);
-    if (result == -1)
-        System.out.print(
-            "Element is not present in array");
-    else
-        System.out.print("Element is present at index "
-                        + result);
-}
-}
-                                </code>
+                             </code>
                             </pre>
                 </div>
 
