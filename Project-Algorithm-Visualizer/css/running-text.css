@@ -39,10 +39,10 @@
 
 @keyframes words {
     0%,20%{
-        content: "Soduku Solver";
+        content: "Sudoku Solver";
     }
     21%,40%{
-        content: "Soe";
+        content: "Sieve of Eratosthenes";
     }
     41%,60%{
         content: "Binary Search Tree";
