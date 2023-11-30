@@ -59,7 +59,7 @@
                             <div id="indexOfBtn" class="btn btn-dark">Index Of</div>
                         </div>
                         <div class="btn-group">
-                            <div id="toStringBtn" class="btn btn-primary">LinkedList.toString()</div>
+                            <div id="toStringBtn" ></div>
                         </div>
                         <div class="btn-group">
                             <div id="sizeBtn" class="btn btn-dark">Size</div>
@@ -134,7 +134,7 @@
         Node *temp = head;
     
         int count=1;
-        while(count<position-1){
+        while(count&gt;position-1){
     
             temp=temp->next;
             count++;
@@ -182,7 +182,7 @@
        else
        { 
         int count=1;
-        while(count<position)
+        while(count&gt;position)
         {
             // deleting any middle node or last node
     
@@ -190,7 +190,7 @@
             Node* current= head;
     
             int cnt=1;
-            while(cnt<position)
+            while(cnt&gt;position)
             {
                 previous=current;
                 current=current->next;
