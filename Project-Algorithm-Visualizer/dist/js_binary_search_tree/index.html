@@ -57,6 +57,7 @@
 
 
  <code class="language-java" style="font-size: 16px; font-weight: bold;">
+<<<<<<< HEAD
   public class BinarySearchTree {  
   
     //Represent a node of binary tree  
@@ -221,6 +222,51 @@
           bt.inorderTraversal(bt.root);  
       }  
 }               
+=======
+
+    #include<bits/stdc++.h>
+    using namespace std;
+        
+    int BinarySearch(int arr[],int size,int key)
+    {
+        int left=0;
+        int right=size-1;
+        int mid=left+(right-left)/2;
+    
+        while(left<=right){
+    
+            if(key==arr[mid]){
+                 return mid;
+            }
+    
+            else if(key>arr[mid])
+            {
+                left=mid+1;
+            }
+    
+            else{
+                right=mid-1;
+            }
+             mid=left+(right-left)/2;
+        }
+        return -1;
+    }
+    
+    int main()
+    {
+    int arr[]={10,20,30,40,50,60};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    
+    int key=20;
+    
+    int k=BinarySearch(arr,size,key);
+    
+    <!-- cout<<k<<endl; -->
+        
+    return 0;
+    }
+                            
+>>>>>>> a4f197f7ee1a047875e102bb6ae1900e9599fa15
 </code>
  </pre>
                 </div>
@@ -234,9 +280,26 @@
                         font-size: 15px;
                         letter-spacing: 3px;">
                         <code class="language-java">
+<<<<<<< HEAD
 The time complexity for creating a tree is O(1) . The time complexity for searching, inserting or deleting a node depends on the height of the tree h
 so the worst case is O(h)
 
+=======
+
+Search Operation (Average Case):
+
+Balanced BST: O(log n)
+Unbalanced BST (worst case, resembling a linked list): O(n)
+Insertion Operation (Average Case):
+
+Balanced BST: O(log n)
+Unbalanced BST (worst case, resembling a linked list): O(n)
+Deletion Operation (Average Case):
+
+Balanced BST: O(log n)
+Unbalanced BST (worst case, resembling a linked list): O(n)
+
+>>>>>>> a4f197f7ee1a047875e102bb6ae1900e9599fa15
                             </code>
                         </pre>
                     </div>
@@ -248,8 +311,14 @@ so the worst case is O(h)
                         <pre id="space" style="font-family: 'Poppins', sans-serif;
                         font-size: 15px;
                         letter-spacing: 3px;">
+<<<<<<< HEAD
                             <code class="language-java">The space complexity of searching a node in a BST 
                             would be O(n) with 'n' being the depth of the tree(number of nodes present in a tree)
+=======
+                            <code class="language-java">
+Node Size: O(1) per node (assuming constant-size keys).
+Number of Nodes: O(n) where 'n' is the number of nodes in the binary search tree.
+>>>>>>> a4f197f7ee1a047875e102bb6ae1900e9599fa15
                             </code>
                         </pre>
                     </div>
