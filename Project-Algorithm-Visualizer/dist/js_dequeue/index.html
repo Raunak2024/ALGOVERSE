@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <h1> DeQueue</h1>
+    <h1> DE-Queue</h1>
 
     <div class="container">
         <section>
@@ -203,7 +203,15 @@ int main()
                     font-size: 15px;
                     letter-spacing: 3px;">
                     <code class="language-java">
-The time complexity of all deque operations is O(1)
+                        Time Complexity (for a basic doubly-ended queue, or deque, implementation):
+
+                        EnqueueFront/EnqueueRear (Insertion at the front/rear): O(1) - Constant time.
+
+                        DequeueFront/DequeueRear (Removal from the front/rear): O(1) - Constant time.
+
+                        PeekFront/PeekRear (Front/Rear element access): O(1) - Constant time.
+
+                        Search: O(n) - Linear time, as it may require traversing the deque.
                         </code>
                     </pre>
                 </div>
@@ -216,7 +224,11 @@ The time complexity of all deque operations is O(1)
                     font-size: 15px;
                     letter-spacing: 3px;">
                         <code class="language-java">
-                            Space Complexity: It is constant i.e. O(1) and no extra space is used
+                            *Node Size (if implemented with nodes): O(1) per element.
+
+                            *Number of Elements: O(n) where 'n' is the number of elements in the deque.
+
+                            *Constant Overhead: O(1) for the deque structure, including pointers or indices.
                         </code>
                     </pre>
                 </div>
