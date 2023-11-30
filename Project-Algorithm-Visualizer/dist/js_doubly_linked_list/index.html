@@ -77,7 +77,7 @@
             <div id="description">
                 <div class="code">
                     <div class="selectedPane">
-                        <span>Code in (Java)</span>
+                        <span>Code in (C++)</span>
                     </div>
 
                     <pre id="code_java" style="font-family: 'Poppins', sans-serif;
@@ -85,42 +85,145 @@
                     letter-spacing: 3px;">
 
 
- <code class="language-java" style="font-size: 16px; font-weight: bold;">// Java program for implementation of Bubble Sort
-import java.util.*;
+ <code class="language-java" style="font-size: 16px; font-weight: bold;">
+    
+// C++ program for implementation of DoublyLinkedList
+#include <bits/stdc++.h>
+using namespace std;
 
-class BubbleSort {
-    void bubbleSort(int arr[])
+class Node
+{
+public:
+    Node *prev;
+    int data;
+    Node *next;
+
+    // CONSTRUCTOR
+
+    Node(int data)
     {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++)
-            for (int j = 0; j < n - i - 1; j++)
-                if (arr[j] > arr[j + 1]) {
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+
+        this->data = data;
+        this->next = NULL;
+        this->prev = NULL;
+    }
+};
+
+void print(Node *head)
+{
+
+    Node *temp = head;
+
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
     }
 
-    /* Prints the array */
-    void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
-    }
+    cout << endl;
+}
 
-    // Driver method to test above
-    public static void main(String args[])
+int getLength(Node *head)
+{
+    int length = 0;
+    Node *temp = head;
+
+    while (temp != NULL)
     {
-        BubbleSort ob = new BubbleSort();
-        int arr[] = { 5, 1, 4, 2, 8 };
-        ob.bubbleSort(arr);
-        System.out.println("Sorted array");
-        ob.printArray(arr);
+        length++;
+        temp = temp->next;
     }
-} 
+    return length;
+}
+
+void InsertAtHead(Node *&head,Node*&tail, int data)
+{   
+    // if list is empty then
+    if (head == NULL)
+    {
+        Node*temp=new Node(data);
+        head=temp;
+    }
+    else
+    {
+        Node *temp = new Node(data);
+        temp->next = head;
+        head->prev = temp;
+        head = temp;
+    }
+}
+
+void InsertAtTail(Node*&head,Node*&tail, int data)
+{
+      if (head == NULL)
+    {
+        Node*temp=new Node(data);
+        head=temp;
+    }
+    else{
+    Node *temp = new Node(data);
+    tail->next = temp;
+    tail = temp;
+    }
+}
+
+void InsertAtPosition(Node *&head, Node *&tail, int position, int data)
+{
+    if (position == 1)
+    {
+        InsertAtHead(head,tail, data);
+        return;
+    }
+    else
+    {
+
+        int count = 1;
+        Node *temp = head;
+
+        while (count < position - 1)
+        {
+            count++;
+            temp = temp->next;
+        }
+
+        // inserting at last position
+        if (temp->next == NULL)
+        {
+            InsertAtTail(head,tail, data);
+            return;
+        }
+
+        // creating a newnode
+        Node *newnode = new Node(data);
+
+        newnode->next = temp->next;
+        newnode->prev = temp;
+        temp->next = newnode;
+        temp->next->prev = newnode;
+    }
+}
+
+int main()
+{
+    Node *node1 = new Node(10);
+
+    Node *head = node1;
+    Node *tail = node1;
+
+    print(head);
+    cout << getLength(head) << endl;
+
+    InsertAtHead(head,tail, 20);
+
+    print(head);
+    InsertAtTail(head,tail, 30);
+    print(head);
+
+    InsertAtPosition(head, tail, 1, 300);
+    print(head);
+
+    return 0;
+}
 
                             
 </code>
@@ -135,11 +238,18 @@ class BubbleSort {
                         <pre id="time" style="font-family: 'Poppins', sans-serif;
                         font-size: 15px;
                         letter-spacing: 3px;">
-                        <code class="language-java">
-The above function always runs O(N2) time even if the array is sorted. 
-It can be optimized by stopping the algorithm if the inner loop didn’t cause any swap.
+                        <code class="language-java">     
 
-Time Complexity: O(N2)
+Access/Search: O(n) - 
+Linear time to traverse the list, as both forward and backward traversal may be necessary.
+
+Insertion/Deletion (at the beginning): O(1) - 
+Constant time, as it involves updating pointers.
+                            
+Insertion/Deletion (at the end): O(1) - 
+Constant time, as there are pointers to both the head and tail.
+                            
+Insertion/Deletion (in the middle, with known position): O(1) - Constant time, once the specific position is reached.
                             </code>
                         </pre>
                     </div>

@@ -75,7 +75,7 @@
             <div id="description">
                 <div class="code">
                     <div class="selectedPane">
-                        <span>Code in (Java)</span>
+                        <span>Code in (C++)</span>
                     </div>
 
                     <pre id="code_java" style="font-family: 'Poppins', sans-serif;
@@ -83,42 +83,167 @@
                     letter-spacing: 3px;">
 
 
- <code class="language-java" style="font-size: 16px; font-weight: bold;">// Java program for implementation of Bubble Sort
-import java.util.*;
+ <code class="language-java" style="font-size: 16px; font-weight: bold;">
+// C++ program for implementation of Singly Linked List
 
-class BubbleSort {
-    void bubbleSort(int arr[])
+
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+
+    Node(int data)
     {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++)
-            for (int j = 0; j < n - i - 1; j++)
-                if (arr[j] > arr[j + 1]) {
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+        this->data = data;
+        this->next = NULL;
+    }
+};
+
+void InsertAtHead(Node *&head, int data)
+{
+    // creating a newnode;
+
+    Node *temp = new Node(data);
+    temp->next = head;
+    head = temp;
+}
+
+void InsertAtTail(Node *&tail, int data)
+{
+    Node *temp = new Node(data);
+    tail->next = temp;
+    // or
+    //  tail=temp;
+    tail = tail->next;
+}
+
+void InserAtPosition(Node *&head,Node*&tail,  int position,int data)
+{
+    //  insertion at head
+
+    if(position==1)
+    {InsertAtHead(head,data);
+     return;}
+
+    // insertion at middle
+     
+    Node *temp = head;
+
+    int count=1;
+    while(count<position-1){
+
+        temp=temp->next;
+        count++;
     }
 
-    /* Prints the array */
-    void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
+
+    //Inserting at last node
+
+    if(temp->next==NULL){
+        InsertAtTail(tail,data);
     }
 
-    // Driver method to test above
-    public static void main(String args[])
+    // creating a node for data
+
+    Node * nodemiddle=new Node(data);
+
+    nodemiddle->next=temp->next;
+
+    temp->next=nodemiddle;
+    temp=nodemiddle; 
+
+}
+
+void print(Node *&head)
+{
+    // creating a new pointer
+
+    Node *temp = head;
+
+    while (temp != NULL)
     {
-        BubbleSort ob = new BubbleSort();
-        int arr[] = { 5, 1, 4, 2, 8 };
-        ob.bubbleSort(arr);
-        System.out.println("Sorted array");
-        ob.printArray(arr);
+
+        cout << temp->data << " ";
+        temp = temp->next;
     }
-} 
+    cout << endl;
+}
+
+void DeleteNode(Node *&head,int position)
+{
+    // for first position
+
+   if(position==1)
+   {
+    Node*temp=head;
+     head=head->next;
+     delete temp;
+   } 
+   else
+   { 
+    int count=1;
+    while(count<position)
+    {
+        // deleting any middle node or last node
+
+        Node * previous=NULL;
+        Node* current= head;
+
+        int cnt=1;
+        while(cnt<position)
+        {
+            previous=current;
+            current=current->next;
+            current++;
+        }
+        previous->next=current->next;
+        current->next=NULL;
+        delete current;
+    }
+
+        
+   }
+}
+
+int main()
+{
+   
+    // creating a new node
+
+    Node *node1 = new Node(10);
+
+    // head pointed to node1
+    Node *head = node1;
+    // creating a tail
+    Node *tail = node1;
+
+    print(head);
+
+    //   InsertAtHead(head,30);
+
+     InsertAtTail(tail, 20);
+     InsertAtTail(tail, 30);
+     InsertAtTail(tail, 40);
+
+     print(head);
+    
+    InserAtPosition(head,tail,4,50);
+    print(head);
+
+    // DELETING NODE
+
+    DeleteNode(head,5);
+
+    print(head);
+
+    return 0;
+}
+
+
 
                             
 </code>
@@ -134,10 +259,16 @@ class BubbleSort {
                         font-size: 15px;
                         letter-spacing: 3px;">
                         <code class="language-java">
-The above function always runs O(N2) time even if the array is sorted. 
-It can be optimized by stopping the algorithm if the inner loop didn’t cause any swap.
-
-Time Complexity: O(N2)
+                            
+**Access/Search:** O(n) - Linear time to traverse the list.
+                              
+**Insertion/Deletion (at the beginning):** O(1) - Constant time, as it involves updating pointers.
+                            
+**Insertion/Deletion (at the end):** O(n) - Linear time, as it requires traversing the entire list to reach the last node.
+                            
+**Insertion/Deletion (in the middle, with known position):** O(1) - Constant time, once the specific position is reached.
+                            
+**Space Complexity:** O(n) - Linear space due to the number of nodes in the list.
                             </code>
                         </pre>
                     </div>
@@ -149,10 +280,25 @@ Time Complexity: O(N2)
                         <pre id="space" style="font-family: 'Poppins', sans-serif;
                         font-size: 15px;
                         letter-spacing: 3px;">
-                            <code class="language-java">The Space Complexity of the Bubble Sort Algorithm Bubble sort requires only a fixed amount of extra space for the flag, i, and size variables. 
-As a result, the space complexity of bubble sort is O. (1).
+                            <code class="language-java">
+                                
 
-Auxiliary Space: O(1)
+*Node Size:
+                                
+    Each node requires O(1) space for data and 
+    a reference to the next node.
+
+*Number of Nodes:
+                                
+    The space complexity is O(n), 
+    where 'n' is the number of nodes in the linked list.
+
+*Constant and Dynamic Allocation Overhead:
+                                
+    The overall space complexity is often dominated by O(n) 
+    due to the dynamic allocation of nodes and constant overhead.
+
+
                             </code>
                         </pre>
                     </div>
