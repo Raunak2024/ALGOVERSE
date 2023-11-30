@@ -48,7 +48,7 @@
             <div id="description">
                 <div class="code">
                     <div class="selectedPane">
-                        <span>Code in (Java)</span>
+                        <span>Code in (C++)</span>
                     </div>
 
                     <pre id="code_java" style="font-family: 'Poppins', sans-serif;
@@ -56,43 +56,125 @@
                     letter-spacing: 3px;">
 
 
- <code class="language-java" style="font-size: 16px; font-weight: bold;">// Java program for implementation of Bubble Sort
+ <code class="language-java" style="font-size: 16px; font-weight: bold;">
+// Java program for implementation of Bubble Sort
 import java.util.*;
 
-class BubbleSort {
-    void bubbleSort(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++)
-            for (int j = 0; j < n - i - 1; j++)
-                if (arr[j] > arr[j + 1]) {
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+// Binary Search Tree operations in C++
+
+#include &it; iostream>
+using namespace std;
+
+struct node {
+  int key;
+  struct node *left, *right;
+};
+
+
+
+// Create a node
+struct node *newNode(int item) {
+  struct node *temp = (struct node *)malloc(sizeof(struct node));
+  temp->key = item;
+  temp->left = temp->right = NULL;
+  return temp;
+}
+
+// Inorder Traversal
+
+void inorder(struct node *root) {
+  if (root != NULL) {
+    // Traverse left
+    inorder(root->left);
+
+    // Traverse root
+    cout << root->key << " -> ";
+
+    // Traverse right
+    inorder(root->right);
+  }
+}
+
+// Insert a node
+struct node *insert(struct node *node, int key) {
+
+  // Return a new node if the tree is empty
+  if (node == NULL) return newNode(key);
+
+  // Traverse to the right place and insert the node
+  if (key < node->key)
+    node->left = insert(node->left, key);
+  else
+    node->right = insert(node->right, key);
+
+  return node;
+}
+
+// Find the inorder successor
+struct node *minValueNode(struct node *node) {
+  struct node *current = node;
+
+  // Find the leftmost leaf
+  while (current && current->left != NULL)
+    current = current->left;
+
+  return current;
+}
+
+// Deleting a node
+struct node *deleteNode(struct node *root, int key) {
+  // Return if the tree is empty
+  if (root == NULL) return root;
+
+  // Find the node to be deleted
+  if (key < root->key)
+    root->left = deleteNode(root->left, key);
+  else if (key > root->key)
+    root->right = deleteNode(root->right, key);
+  else {
+    // If the node is with only one child or no child
+    if (root->left == NULL) {
+      struct node *temp = root->right;
+      free(root);
+      return temp;
+    } else if (root->right == NULL) {
+      struct node *temp = root->left;
+      free(root);
+      return temp;
     }
 
-    /* Prints the array */
-    void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
-    }
+    // If the node has two children
+    struct node *temp = minValueNode(root->right);
 
-    // Driver method to test above
-    public static void main(String args[])
-    {
-        BubbleSort ob = new BubbleSort();
-        int arr[] = { 5, 1, 4, 2, 8 };
-        ob.bubbleSort(arr);
-        System.out.println("Sorted array");
-        ob.printArray(arr);
-    }
-} 
+    // Place the inorder successor in position of the node to be deleted
+    root->key = temp->key;
 
+    // Delete the inorder successor
+    root->right = deleteNode(root->right, temp->key);
+  }
+  return root;
+}
+
+// Driver code
+int main() {
+  struct node *root = NULL;
+  root = insert(root, 8);
+  root = insert(root, 3);
+  root = insert(root, 1);
+  root = insert(root, 6);
+  root = insert(root, 7);
+  root = insert(root, 10);
+  root = insert(root, 14);
+  root = insert(root, 4);
+
+  cout << "Inorder traversal: ";
+  inorder(root);
+
+  cout << "\nAfter deleting 10\n";
+  root = deleteNode(root, 10);
+  cout << "Inorder traversal: ";
+  inorder(root);
+}
                             
 </code>
  </pre>
