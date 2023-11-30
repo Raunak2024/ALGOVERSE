@@ -75,7 +75,7 @@
             <div id="description">
                 <div class="code">
                     <div class="selectedPane">
-                        <span>Code in (C++)</span>
+                        <span>Code in Java</span>
                     </div>
 
                     <pre id="code_java" style="font-family: 'Poppins', sans-serif;
@@ -84,165 +84,41 @@
 
 
  <code class="language-java" style="font-size: 16px; font-weight: bold;">
-// C++ program for implementation of Singly Linked List
 
 
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-class Node
-{
-public:
-    int data;
-    Node *next;
-
-    Node(int data)
-    {
-        this->data = data;
-        this->next = NULL;
-    }
-};
-
-void InsertAtHead(Node *&head, int data)
-{
-    // creating a newnode;
-
-    Node *temp = new Node(data);
-    temp->next = head;
-    head = temp;
-}
-
-void InsertAtTail(Node *&tail, int data)
-{
-    Node *temp = new Node(data);
-    tail->next = temp;
-    // or
-    //  tail=temp;
-    tail = tail->next;
-}
-
-void InserAtPosition(Node *&head,Node*&tail,  int position,int data)
-{
-    //  insertion at head
-
-    if(position==1)
-    {InsertAtHead(head,data);
-     return;}
-
-    // insertion at middle
-     
-    Node *temp = head;
-
-    int count=1;
-    while(count<position-1){
-
-        temp=temp->next;
-        count++;
-    }
-
-
-    //Inserting at last node
-
-    if(temp->next==NULL){
-        InsertAtTail(tail,data);
-    }
-
-    // creating a node for data
-
-    Node * nodemiddle=new Node(data);
-
-    nodemiddle->next=temp->next;
-
-    temp->next=nodemiddle;
-    temp=nodemiddle; 
-
-}
-
-void print(Node *&head)
-{
-    // creating a new pointer
-
-    Node *temp = head;
-
-    while (temp != NULL)
-    {
-
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-    cout << endl;
-}
-
-void DeleteNode(Node *&head,int position)
-{
-    // for first position
-
-   if(position==1)
-   {
-    Node*temp=head;
-     head=head->next;
-     delete temp;
-   } 
-   else
-   { 
-    int count=1;
-    while(count<position)
-    {
-        // deleting any middle node or last node
-
-        Node * previous=NULL;
-        Node* current= head;
-
-        int cnt=1;
-        while(cnt<position)
-        {
-            previous=current;
-            current=current->next;
-            current++;
-        }
-        previous->next=current->next;
-        current->next=NULL;
-        delete current;
-    }
-
-        
-   }
-}
-
-int main()
-{
-   
-    // creating a new node
-
-    Node *node1 = new Node(10);
-
-    // head pointed to node1
-    Node *head = node1;
-    // creating a tail
-    Node *tail = node1;
-
-    print(head);
-
-    //   InsertAtHead(head,30);
-
-     InsertAtTail(tail, 20);
-     InsertAtTail(tail, 30);
-     InsertAtTail(tail, 40);
-
-     print(head);
-    
-    InserAtPosition(head,tail,4,50);
-    print(head);
-
-    // DELETING NODE
-
-    DeleteNode(head,5);
-
-    print(head);
-
-    return 0;
-}
-
+    public class LinkedListExamples  
+    {  
+     Node head;  // head of list  
+     static class Node {  
+     int data;  
+             Node next;  
+     Node(int d)  { data = d;  next=null; }  
+         }  
+         /* This function prints contents of the linked list starting from head */  
+     public void display()  
+         {  
+             Node n = head;  
+     while (n != null)  
+             {  
+     System.out.print(n.data+" \n");  
+                 n = n.next;  
+             }  
+         }  
+         /* method to create a simple linked list with 3 nodes*/  
+     public static void main(String[] args)  
+         {  
+             /* Start with the empty list. */  
+     LinkedListExamples list = new LinkedListExamples();  
+      
+     list.head       = new Node(100);  
+             Node second      = new Node(200);  
+             Node third       = new Node(300);  
+      
+     list.head.next = second; // Link first node with the second node  
+     second.next = third; // Link first node with the second node  
+     list.display();  
+         }  
+    }  
 
 
                             
