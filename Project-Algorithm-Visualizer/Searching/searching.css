@@ -51,7 +51,8 @@
 section {
     height: 100vh;
     /* width: 100vw; */
-    background-color: #151f32;
+    background-color: #1B1E24;
+    /* background-color: #151f32; */
     background-image: url(../upper-gradient.svg);
     background-repeat: no-repeat;
     background-size: 100%;
