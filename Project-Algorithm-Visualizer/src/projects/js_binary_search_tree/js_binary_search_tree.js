@@ -1,3 +1,7 @@
+// This JavaScript code defines a Binary Search Tree (BST) data structure with a BinarySearchTree class and a TreeNode class. 
+
+//It includes methods for inserting, removing, searching, and traversing nodes within the tree.
+
 const COMPARISON = {
   EQUAL: 0,
   SMALLER: -1,
@@ -12,6 +16,11 @@ const defaultCompareNumberFn = (a, b) => {
   return Number(a) < Number(b) ? COMPARISON.SMALLER : COMPARISON.GREATER;
 };
 
+// TreeNode Class:
+
+// Represents a node in the binary search tree.
+// Contains a value (converted to a string), references to the parent, left child, and right child.
+// Provides properties (isLeaf and hasChildren) for checking node characteristics.
 class TreeNode {
   constructor(value, parent) {
     this.value = value.toString();
